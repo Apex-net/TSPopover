@@ -56,8 +56,6 @@
         screenRect.size.height = screenRect.size.height-20;   
         
         titleLabelheight = 0;
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 	}
 	return self;
 }
@@ -218,12 +216,6 @@
     [self dismissPopoverAnimatd:YES];
 }
 
-- (void)orientationChanged:(NSNotification *)notification
-{
-    [self dismissPopoverAnimatd:NO];
-}
-
-
 - (void) dismissPopoverAnimatd:(BOOL)animated
 {
     if (self.view) {
@@ -255,8 +247,6 @@
         }
         
     }
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (CGRect) contentFrameRect:(CGRect)contentFrame senderPoint:(CGPoint)senderPoint
